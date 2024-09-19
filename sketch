@@ -1,0 +1,38 @@
+let palavra;
+
+function setup() {
+  createCanvas(500, 500);
+
+  palavra = palavraAleatoria();
+  
+}
+
+function palavraAleatoria() {
+  
+  let palavras = ["Caminhos","valtra","cvt250"];
+  
+  return random(palavras);
+}
+
+function inicializaCores() {
+  background("#ECD92F");
+  fill("black");
+  textSize(90);
+  textAlign(CENTER, CENTER);
+}
+
+function palavraParcial(minimo, maximo) {
+  let quantidade = map(mouseX, minimo, maximo, 1, palavra.length);
+  let parcial = palavra.substring(0, quantidade);
+  return parcial;
+}
+
+function draw() {
+  
+  inicializaCores();
+
+  let parcial = palavraParcial(0, width);
+    
+  text(parcial, 250, 250);
+  
+}
